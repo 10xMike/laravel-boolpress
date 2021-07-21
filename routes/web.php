@@ -15,11 +15,17 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'PageController@index')->name('index');
 
+//Auth
 Auth::routes();
 
+//Admin Routes
 Route::prefix('admin')
     ->namespace('Admin')
     ->middleware('auth')
     ->group(function () {
         Route::get('/', 'HomeController@index')->name('home');
     });
+
+//Guests Routes
+Route::get('posts', 'PostController@index')->name('posts.index');
+Route::get('posts/{id}', 'PostController@show')->name('posts.show');
