@@ -28,4 +28,4 @@ Route::prefix('admin')
 
 //Guests Routes
 Route::get('posts', 'PostController@index')->name('posts.index');
-Route::get('posts/{id}', 'PostController@show')->name('posts.show');
+Route::get('posts/{post}', 'PostController@show')->name('posts.show');
