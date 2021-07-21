@@ -1,5 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-<h1>Index Page</h1>
+    <div class="container">
+        <h1>Laravel CMS</h1>
+        <span>Start blogging now!</span>
+    </div>
 @endsection
