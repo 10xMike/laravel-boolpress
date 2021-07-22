@@ -22,8 +22,10 @@ Auth::routes();
 Route::prefix('admin')
     ->namespace('Admin')
     ->middleware('auth')
+    ->name('admin')
     ->group(function () {
         Route::get('/', 'HomeController@index')->name('home');
+        /* route::resource('...') */
     });
 
 //Guests Routes

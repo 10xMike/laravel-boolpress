@@ -12,14 +12,10 @@ class PostsTableSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-        $posts = [
-           //dati
-        ];
-
-        foreach($posts as $post){
+        for ($i=0; $i < 25; $i++) { 
             $newPost = new Post();
-            $newPost->title = $post['title'];
-            $newPost->body = $post['body'];
+            $newPost->title = $faker->words(5, true);
+            $newPost->body = $faker->words(4000, true);
             $newPost->save();
         }
     }
