@@ -25,9 +25,10 @@ Route::prefix('admin')
     ->name('admin')
     ->group(function () {
         Route::get('/', 'HomeController@index')->name('home');
-        /* route::resource('...') */
+        Route::resource('posts', PostController::class);
     });
 
 //Guests Routes
 Route::get('posts', 'PostController@index')->name('posts.index');
 Route::get('posts/{post}', 'PostController@show')->name('posts.show');
+
