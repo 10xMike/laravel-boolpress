@@ -16,6 +16,7 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -61,7 +62,7 @@
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                                 document.getElementById('logout-form').submit();">
+                                                                     document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
 
@@ -85,12 +86,13 @@
                             <ul class="nav flex-column">
                                 <li class="nav-item nav-pills">
                                     <a class="nav-link {{ Route::currentRouteName() === 'admin.dashboard' ? 'active' : '' }}"
-                                        aria-current="page" href="#">
-                                        Dashboard
+                                        aria-current="page" href="{{ route('admin.dashboard') }}">
+                                        <i class="fas fa-tachometer-alt fa-lg fa-fw mr-2"></i>Dashboard
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Posts</a>
+                                    <a class="nav-link {{ Route::currentRouteName() === 'admin.posts.index' ? 'active' : '' }}"
+                                        aria-current="page" href="{{ route('admin.posts.index') }}">Posts</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="#">Users</a>
