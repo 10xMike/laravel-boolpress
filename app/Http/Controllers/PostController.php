@@ -8,12 +8,13 @@ class PostController extends Controller
 {
     public function index()
     {
-        $post = Post::all();
-        return view('guests.posts.index')->with('post', $post);
+        $posts = Post::all();
+        //ddd($posts);
+        return view('guests.posts.index')->with('posts', $posts);
     }
 
-    public function show()
+    public function show(Post $post)
     {
-        return view('guests.posts.show')->with('post', $post);
+        return view('guests.posts.show', compact('post'));
     }
 }

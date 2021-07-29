@@ -24,10 +24,13 @@ Route::prefix('admin')
     ->middleware('auth')
     ->name('admin')
     ->group(function () {
-        Route::get('/', 'HomeController@index')->name('home');
+        Route::get('/', 'HomeController@index')->name('dashboard');
         Route::resource('posts', PostController::class);
     });
 
 //Guests Routes
 Route::get('posts', 'PostController@index')->name('posts.index');
 Route::get('posts/{post}', 'PostController@show')->name('posts.show');
+
+// Categories Routes
+/* Route::get('categories/{category:slug}', 'x@show'); */
