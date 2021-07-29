@@ -22,9 +22,9 @@ Auth::routes();
 Route::prefix('admin')
     ->namespace('Admin')
     ->middleware('auth')
-    ->name('admin')
+    ->name('admin.')
     ->group(function () {
-        Route::get('/', 'HomeController@index')->name('dashboard');
+        Route::get('/', 'HomeController@index')->name('dashboard'); //admin.dashboard
         Route::resource('posts', PostController::class);
     });
 
