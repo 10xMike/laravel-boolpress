@@ -34,3 +34,12 @@ Route::get('posts/{post}', 'PostController@show')->name('posts.show');
 
 // Categories Routes
 /* Route::get('categories/{category:slug}', 'x@show'); */
+
+/* Altre Pagine non connesse ad un entitá/modello  */
+Route::get('/', 'PageController@index');
+Route::get('about', 'PageController@about');
+Route::get('contacts', 'PageController@contacts');
+
+/* Posts per l'utente */
+Route::get('posts', 'PostController@index')->name('posts.index');
+Route::get('posts/{post}', 'PostController@show')->name('posts.show');
