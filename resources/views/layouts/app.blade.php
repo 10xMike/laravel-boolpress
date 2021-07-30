@@ -1,37 +1,39 @@
-@extends('layouts.admin')
+<!DOCTYPE html>
+<html lang="en">
 
-@section('content')
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-<h1>All posts</h1>
-<table class="table table-striped table-inverse table-responsive">
-  <thead class="thead-inverse">
-    <tr>
-      <th>ID</th>
-      <th>IMAGE</th>
-      <th>TITLE</th>
-      <th>ACTIONS</th>
-    </tr>
-    </thead>
-    <tbody>
-    
-      @foreach($posts as $post)
-       <tr>
-        <td scope="row">{{$post->id}}</td>
-        <td> <img width="100" src="{{$post->image}}" alt="{{$post->title}}"> </td>
-        <td> {{$post->title}} </td>
-        <td> 
-          <a href="{{route('admin.posts.show', $post->id)}}">
-            <i class="fas fa-eye fa-sm fa-fw"></i> View |
-          </a>
-          <a href="{{ route('admin.posts.edit', $post->id)}}">
-            <i class="fas fa-pencil-alt fa-sm fa-fw"></i> Edit |
-          </a>
-          <a href="#">
-            <i class="fas fa-trash fa-sm fa-fw"></i> Delete
-          </a>
-        </td>
-      </tr>
-      @endforeach 
-    </tbody>
-</table>
-@endsection
+    <title>@yield("title", "Boolpress")</title>
+
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+
+    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
+</head>
+
+<body>
+    <header id="site-header" class="p-4">
+        <nav class="d-flex justify-content-between">
+            <div class="links">
+                <a href="/" class="mr-3">Home</a>
+                <a href="/posts" class="mr-3">Posts</a>
+            </div>
+
+            <div class="auth">
+                <a class="mr-3" href="{{ route('login') }}">Login</a>
+                <a href="{{ route('register') }}">Register</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        @yield("content")
+    </main>
+
+    <script src="{{ asset('js/bootstrap.js') }}"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
+</body>
+
+</html>
